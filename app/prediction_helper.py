@@ -4,9 +4,12 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 # Path to the saved model and its components
-MODEL_PATH = 'artifacts/model_data.joblib'
+MODEL_PATH = 'app/artifacts/model_data.joblib'
 
 # Load the model and its components
+import os
+print("DEBUG: exists(MODEL_PATH)=", os.path.exists(MODEL_PATH))
+print("DEBUG: abs path ->", os.path.abspath(MODEL_PATH))
 model_data = joblib.load(MODEL_PATH)
 model = model_data['model']
 scaler = model_data['scaler']
